@@ -4,6 +4,9 @@ import sys
 from pathlib import Path
 import os
 import ctypes
+import json
+import urllib.request
+from urllib.error import URLError
 
 import cv2
 import numpy as np
@@ -39,6 +42,8 @@ from docucut.profiles.store import ProfileStore
 
 
 APP_NAME = "DocuCut Studio"
+APP_VERSION = "1.0.1"
+GITHUB_REPO = "rockygamer0007/DocuCut-Studio"
 if getattr(sys, "frozen", False):
     ROOT = Path(sys.executable).resolve().parent
 else:
@@ -108,6 +113,7 @@ class MainWindow(QMainWindow):
 
         settings_button = QPushButton("Settings")
         settings_button.setObjectName("navButton")
+        settings_button.clicked.connect(self.check_for_updates)
         sidebar_layout.addWidget(settings_button)
 
         main = QWidget()
@@ -1636,6 +1642,74 @@ class MainWindow(QMainWindow):
             APP_NAME,
             message,
         )
+    def check_for_updates(self):
+        try:
+            url = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
+            request = urllib.request.Request(
+                url,
+                headers={
+                    "Accept": "application/vnd.github+json",
+                    "User-Agent": APP_NAME,
+                },
+            )
+
+            with urllib.request.urlopen(request, timeout=8) as response:
+                data = json.loads(response.read().decode("utf-8"))
+
+            latest_tag = str(data.get("tag_name", "")).strip()
+            latest_version = latest_tag.lstrip("vV")
+
+            def version_tuple(value):
+                parts = value.split(".")
+                return tuple(int(part) if part.isdigit() else 0 for part in parts[:3])
+
+            if not latest_version:
+                raise RuntimeError("GitHub did not return a release version.")
+
+            current = version_tuple(APP_VERSION)
+            latest = version_tuple(latest_version)
+
+            if latest > current:
+                release_url = data.get(
+                    "html_url",
+                    f"https://github.com/{GITHUB_REPO}/releases/latest",
+                )
+
+                answer = QMessageBox.question(
+                    self,
+                    APP_NAME,
+                    f"Version {latest_version} is available.\n\n"
+                    f"You are using version {APP_VERSION}.\n\n"
+                    "Open the download page?",
+                    QMessageBox.Yes | QMessageBox.No,
+                    QMessageBox.Yes,
+                )
+
+                if answer == QMessageBox.Yes:
+                    import webbrowser
+                    webbrowser.open(release_url)
+            else:
+                QMessageBox.information(
+                    self,
+                    APP_NAME,
+                    f"You're up to date.\n\nCurrent version: {APP_VERSION}",
+                )
+
+        except (URLError, TimeoutError) as exc:
+            QMessageBox.warning(
+                self,
+                APP_NAME,
+                "Could not check for updates.\n\n"
+                f"Please check your internet connection.\n\n{exc}",
+            )
+        except Exception as exc:
+            QMessageBox.warning(
+                self,
+                APP_NAME,
+                "Update check failed.\n\n"
+                f"{exc}",
+            )
+
     def update_status(self, processed: int, failed: int):
         self.status_label.setText(
             f"{len(self.files)} files    •    "

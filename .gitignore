@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Private update backups
+pre-update-backup/
+
+# Private icon backups
+pre-icon-backup/
