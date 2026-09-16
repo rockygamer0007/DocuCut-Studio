@@ -1,0 +1,297 @@
+{
+  "version": 1,
+  "source": "Easy Crop Tool 1.4 factory profile reference",
+  "profiles": {
+    "FOOD": {
+      "label": "RATION CARD",
+      "enabled": true,
+      "sides": "dual",
+      "front": {
+        "x0": 0.07563025210084033,
+        "y0": 0.7821496437054632,
+        "x1": 0.5004201680672269,
+        "y1": 0.9703087885985748
+      },
+      "back": {
+        "x0": 0.5042016806722689,
+        "y0": 0.7821496437054632,
+        "x1": 0.9289915966386555,
+        "y1": 0.9703087885985748
+      },
+      "inset": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0
+      },
+      "output_pvc": 1967,
+      "output_standard": 1155,
+      "processing": "keep",
+      "detect_keywords": [
+        "ration card",
+        "food.wb.gov.in",
+        "nfsa",
+        "digital ration",
+        "food & supplies",
+        "food and supplies"
+      ],
+      "detect_filename": [
+        "ration",
+        "food"
+      ],
+      "detect_min_page_w": null,
+      "detect_layout": "food_previews"
+    },
+    "VOTER": {
+      "label": "VOTER (e-EPIC)",
+      "enabled": true,
+      "sides": "dual",
+      "front": {
+        "x0": 0.05353807843951027,
+        "y0": 0.11200703709133558,
+        "x1": 0.4680431624818427,
+        "y1": 0.2966573816155989
+      },
+      "back": {
+        "x0": 0.5486615480390122,
+        "y0": 0.11200703709133558,
+        "x1": 0.9631666320813447,
+        "y1": 0.2966573816155989
+      },
+      "inset": {
+        "left": 0.0014525835235526042,
+        "top": 0.0013194546254214924,
+        "right": 0.0014525835235526042,
+        "bottom": 0.0013194546254214924
+      },
+      "output_pvc": 7991,
+      "output_standard": 1021,
+      "processing": "none",
+      "detect_keywords": [
+        "election commission",
+        "e-epic",
+        "e-electors",
+        "elector photo identity",
+        "epic no"
+      ],
+      "detect_filename": [
+        "epic",
+        "voter",
+        "e-epic",
+        "elector"
+      ],
+      "detect_min_page_w": 1000,
+      "detect_layout": null
+    },
+    "PAN_UTI": {
+      "label": "PAN UTI",
+      "enabled": true,
+      "sides": "dual",
+      "front": {
+        "x0": 0.0616,
+        "y0": 0.7838,
+        "x1": 0.4678,
+        "y1": 0.9627
+      },
+      "back": {
+        "x0": 0.518,
+        "y0": 0.764,
+        "x1": 0.965,
+        "y1": 0.958
+      },
+      "inset": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0
+      },
+      "output_pvc": 2022,
+      "output_standard": 1011,
+      "processing": "trim",
+      "detect_keywords": [
+        "permanent account number",
+        "income tax department",
+        "income tax",
+        "govt. of india",
+        "govt of india",
+        " pan ",
+        "epan",
+        "electronically issued",
+        "digitally signed"
+      ],
+      "detect_filename": [
+        "uti",
+        "pan",
+        "epan"
+      ],
+      "detect_min_page_w": null,
+      "detect_layout": "pan_epan_uti"
+    },
+    "PAN_NSDL": {
+      "label": "PAN NSDL",
+      "enabled": true,
+      "sides": "dual",
+      "front": {
+        "x0": 0.035,
+        "y0": 0.726,
+        "x1": 0.482,
+        "y1": 0.925
+      },
+      "back": {
+        "x0": 0.518,
+        "y0": 0.726,
+        "x1": 0.965,
+        "y1": 0.925
+      },
+      "inset": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0
+      },
+      "output_pvc": 2022,
+      "output_standard": 1011,
+      "processing": "trim",
+      "detect_keywords": [
+        "permanent account number",
+        "income tax department",
+        "income tax",
+        "govt. of india",
+        "govt of india",
+        " pan ",
+        "epan",
+        "electronically issued",
+        "digitally signed"
+      ],
+      "detect_filename": [
+        "nsdl",
+        "pan",
+        "epan"
+      ],
+      "detect_min_page_w": null,
+      "detect_layout": "pan_epan_nsdl"
+    },
+    "AADHAAR": {
+      "label": "Aadhaar Card (e-Aadhaar)",
+      "enabled": true,
+      "sides": "dual",
+      "front": {
+        "x0": 0.084,
+        "y0": 0.726,
+        "x1": 0.488,
+        "y1": 0.925
+      },
+      "back": {
+        "x0": 0.509,
+        "y0": 0.726,
+        "x1": 0.919,
+        "y1": 0.925
+      },
+      "inset": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0
+      },
+      "output_pvc": 2022,
+      "output_standard": 1011,
+      "processing": "none",
+      "detect_keywords": [
+        "aadhaar",
+        "aadhar",
+        "uidai",
+        "unique identification authority",
+        "e-aadhaar"
+      ],
+      "detect_filename": [
+        "aadhaar",
+        "aadhar",
+        "uid",
+        "eaadhaar"
+      ],
+      "detect_min_page_w": null,
+      "detect_layout": "aadhaar_bottom"
+    },
+    "ABHA": {
+      "label": "ABHA Health Card",
+      "enabled": true,
+      "sides": "dual",
+      "front": {
+        "x0": 0.02,
+        "y0": 0.02,
+        "x1": 0.98,
+        "y1": 0.49
+      },
+      "back": {
+        "x0": 0.02,
+        "y0": 0.51,
+        "x1": 0.98,
+        "y1": 0.98
+      },
+      "inset": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0
+      },
+      "output_pvc": 2022,
+      "output_standard": 1011,
+      "processing": "none",
+      "detect_keywords": [
+        "abha",
+        "ayushman bharat",
+        "health account",
+        "national health authority",
+        "abdm"
+      ],
+      "detect_filename": [
+        "abha",
+        "abdm",
+        "ayushman"
+      ],
+      "detect_min_page_w": null,
+      "detect_layout": "abha_vertical"
+    },
+    "AYUSHMAN": {
+      "label": "Ayushman Card (PM-JAY)",
+      "enabled": true,
+      "sides": "dual",
+      "front": {
+        "x0": 0.004,
+        "y0": 0.005,
+        "x1": 0.996,
+        "y1": 0.995
+      },
+      "back": {
+        "x0": 0.004,
+        "y0": 0.005,
+        "x1": 0.996,
+        "y1": 0.995
+      },
+      "inset": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0
+      },
+      "output_pvc": 2022,
+      "output_standard": 1011,
+      "processing": "none",
+      "detect_keywords": [
+        "ayushman",
+        "pm-jay",
+        "pmjay",
+        "jan arogya",
+        "national health authority"
+      ],
+      "detect_filename": [
+        "ayushman",
+        "pmjay",
+        "pm-jay",
+        "arogya"
+      ],
+      "detect_min_page_w": null,
+      "detect_layout": "page_per_side"
+    }
+  }
+}
